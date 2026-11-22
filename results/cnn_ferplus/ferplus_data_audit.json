@@ -1,0 +1,32 @@
+{
+  "rows": 35887,
+  "min_votes": 4,
+  "vote_columns_in_model_order": [
+    "anger",
+    "disgust",
+    "fear",
+    "happiness",
+    "sadness",
+    "surprise",
+    "neutral"
+  ],
+  "counts": {
+    "Training": {
+      "available": 28709,
+      "accepted": 26593,
+      "discarded_ambiguous": 2116,
+      "used_for_cnn": 26593
+    },
+    "PublicTest": {
+      "available": 3589,
+      "accepted": 3356,
+      "discarded_ambiguous": 233
+    },
+    "PrivateTest": {
+      "available": 3589,
+      "accepted": 3329,
+      "discarded_ambiguous": 260
+    }
+  },
+  "source_url": "https://raw.githubusercontent.com/microsoft/FERPlus/master/fer2013new.csv"
+}

@@ -1,0 +1,11 @@
+# Connection to the AI course
+
+FER2013 is supervised learning: each 48x48 image is paired with one of seven class labels. NumPy arrays hold the pixels and labels; Pandas is used for result summaries. Training, public validation, and private test partitions have separate roles. The private partition is evaluated only after validation-based selection.
+
+KNN is a non-parametric classifier. For a new vector it finds the k nearest training vectors and votes using distance weights. Comparing k=3, 5, 7, and 11 shows the effect of neighborhood size. Raw flattened pixels are high-dimensional and retain no explicit geometry; this makes KNN a useful baseline, but expensive in memory and query time. Full mode uses a deterministic stratified 8,000-sample subset for KNN and records the count; no PCA is silently applied.
+
+The baseline MLP has two hidden layers (128 and 64 units), ReLU activation, and a seven-unit softmax output. The selected FER+ model is a convolutional neural network (CNN) that keeps each 48×48 image in its two-dimensional layout. Three stages apply a learned 3×3 convolution (16, 32, then 64 channels), batch normalization, ReLU, max pooling, and dropout. Adaptive pooling feeds a 128-unit dense layer and seven output logits. This lets the model learn local patterns such as edges and facial-feature arrangements instead of treating every pixel as an unrelated input. Training uses AdamW, cross-entropy loss, and random horizontal flips on training batches; early stopping restores the lowest validation-loss checkpoint. At inference, probabilities from the face and its horizontal mirror are averaged. The classifier describes visible expression categories, not a person's internal emotional state.
+
+Accuracy reports the overall fraction correct. Macro-F1 averages each class's F1 equally, exposing weak performance on underrepresented classes such as disgust. Confusion matrices show class-to-class errors. Validation macro-F1 is the primary model selection criterion and accuracy breaks ties. Test scores describe this dataset split only.
+
+Facial appearance labels are observations, not a ground truth for a person's felt emotion. Dataset imbalance, annotator subjectivity, demographic and capture bias, low resolution, and webcam domain shift limit conclusions.

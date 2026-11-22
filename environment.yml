@@ -1,0 +1,27 @@
+name: facial_emotion_ai
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - tk=8.6.*
+  - pip
+  - numpy=1.26.*
+  - pandas=2.2.*
+  - scikit-learn=1.5.*
+  - pillow=10.*
+  - matplotlib=3.9.*
+  - seaborn=0.13.*
+  - joblib=1.4.*
+  - jupyter=1.1.*
+  - notebook=7.*
+  - ipykernel=6.*
+  - pytest=8.*
+  - pip:
+      - --extra-index-url https://download.pytorch.org/whl/cpu
+      - "torch==2.15.0; python_version < '3.13' and not (platform_system == 'Darwin' and platform_machine == 'x86_64')"
+      - "torch==2.2.2; python_version < '3.13' and platform_system == 'Darwin' and platform_machine == 'x86_64'"
+      - opencv-contrib-python==4.10.0.84
+      - "mediapipe==0.10.35; platform_system == 'Windows' and python_version < '3.13'"
+      - "mediapipe==0.10.35; platform_system == 'Linux' and platform_machine == 'x86_64' and python_version < '3.13'"
+      - "mediapipe==0.10.35; platform_system == 'Darwin' and platform_machine == 'arm64' and python_version < '3.13'"
+      - kaggle>=1.6,<2
