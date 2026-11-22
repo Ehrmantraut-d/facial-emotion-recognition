@@ -18,7 +18,7 @@ dependencies:
   - pytest=8.*
   - pip:
       - --extra-index-url https://download.pytorch.org/whl/cpu
-      - "torch==2.15.0; python_version < '3.13' and not (platform_system == 'Darwin' and platform_machine == 'x86_64')"
+      - "torch==2.15.0; python_version < '3.13' and (platform_system != 'Darwin' or platform_machine != 'x86_64')"
       - "torch==2.2.2; python_version < '3.13' and platform_system == 'Darwin' and platform_machine == 'x86_64'"
       - opencv-contrib-python==4.10.0.84
       - "mediapipe==0.10.35; platform_system == 'Windows' and python_version < '3.13'"

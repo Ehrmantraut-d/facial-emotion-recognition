@@ -11,7 +11,7 @@ ipykernel>=6.29,<7
 pytest>=8,<9
 kaggle>=1.6,<2
 --extra-index-url https://download.pytorch.org/whl/cpu
-torch==2.15.0; python_version < '3.13' and not (platform_system == 'Darwin' and platform_machine == 'x86_64')
+torch==2.15.0; python_version < '3.13' and (platform_system != 'Darwin' or platform_machine != 'x86_64')
 torch==2.2.2; python_version < '3.13' and platform_system == 'Darwin' and platform_machine == 'x86_64'
 mediapipe==0.10.35; python_version < '3.13' and platform_system == 'Windows'
 mediapipe==0.10.35; python_version < '3.13' and platform_system == 'Linux' and platform_machine == 'x86_64'
